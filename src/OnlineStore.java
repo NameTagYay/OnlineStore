@@ -38,6 +38,7 @@ public class OnlineStore {
             n = scanner1.nextInt();scanner1.nextLine();
             switch (n) {
                 case 1:
+                    //Load inventory
                     loadInventory();
                     break;
 
@@ -49,11 +50,12 @@ public class OnlineStore {
 
                 case 3:
                     //Remove items from inventory
+
                     break;
 
                 case 4:
-
                     //Modify quantity of items
+
                     break;
 
                 case 5:
@@ -78,9 +80,8 @@ public class OnlineStore {
     public static void printAddInventory(){
         System.out.println(" What would you like to do?");
         System.out.println(" 1 - Add item");
-        System.out.println(" 2 - Add garment");
-        System.out.println(" 3 - Add perishable item");
-        System.out.println(" 4 - Exit");
+        System.out.println(" 2 - Add perishable item");
+        System.out.println(" 3 - Exit");
     }
     public static void doAddInventory() {
         int x = scanner1.nextInt();
@@ -107,28 +108,8 @@ public class OnlineStore {
                 saveInventory();
                 //add item
                 break;
+
             case 2:
-                //add garment
-                //doesn't work
-//            System.out.println("Garment name: ");
-//            String name =scanner1.nextLine();
-//            System.out.println("Garment width: ");
-//            double width = scanner1.nextDouble();nuke.nextLine();
-//            System.out.println("Garment height: ");
-//            double height = scanner1.nextDouble();nuke.nextLine();
-//            System.out.println("Garment length: ");
-//            double length = scanner1.nextDouble();nuke.nextLine();
-//            System.out.println("Garment weight: ");
-//            double weight = scanner1.nextDouble();nuke.nextLine();
-//            System.out.println("Garment price: ");
-//            double price = scanner1.nextDouble();nuke.nextLine();
-//            System.out.println("Garments size: ");
-//            String size = scanner1.nextLine();
-//            Garment t = new Garment(name,width,height,length,weight,price,size);
-//            inventory.add(t);
-//            saveInventory();
-//            break;
-            case 3:
                 // add perishable item
                 //doesn't work
 //            PerishableItem s = new PerishableItem( name,height, length, width, weight, price, daysLeft);
@@ -147,9 +128,10 @@ public class OnlineStore {
 //            System.out.println("Days left: ");
 //            int daysLeft = nuke.nextLine();
                 break;
-            case 4:
+            case 3:
                 // leave
                 break;
+
             default:
                 System.out.println("You don't know how to count!");
         }
