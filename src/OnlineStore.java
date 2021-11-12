@@ -33,7 +33,7 @@ public class OnlineStore {
     public static void main(String[] args) {
         loadInventory();
         int n = 1;
-        while (n != 4) {
+        while (n != 5) {
             printMenu();
             n = scanner1.nextInt();scanner1.nextLine();
             switch (n) {
@@ -43,6 +43,8 @@ public class OnlineStore {
 
                 case 2:
                     //Add items in inventory
+                    printAddInventory();
+                    doAddInventory();
                     break;
 
                 case 3:
@@ -55,9 +57,9 @@ public class OnlineStore {
                     break;
 
                 case 5:
-                    saveInventory();
                     //leave
                     break;
+
                 default:
                     System.out.println("You don't know how to count apparently.");
             }
@@ -73,4 +75,83 @@ public class OnlineStore {
         System.out.println("5 Leave: ");
     }
    //maybe public static void printAddInventory() from last store class ???
+    public static void printAddInventory(){
+        System.out.println(" What would you like to do?");
+        System.out.println(" 1 - Add item");
+        System.out.println(" 2 - Add garment");
+        System.out.println(" 3 - Add perishable item");
+        System.out.println(" 4 - Exit");
+    }
+    public static void doAddInventory() {
+        int x = scanner1.nextInt();
+        scanner1.nextLine();
+        switch (x) {
+            case 1: //base this on printAddInventoryMenu
+                //String name, double height, double length, double width, double weight
+                System.out.println("Item Name: ");
+                String name = scanner1.nextLine();
+                System.out.println("Item Height: ");
+                double height = scanner1.nextDouble();
+                scanner1.nextLine();
+                System.out.println("Item length: ");
+                double length = scanner1.nextDouble();
+                scanner1.nextLine();
+                System.out.println("Item width: ");
+                double width = scanner1.nextDouble();
+                scanner1.nextLine();
+                System.out.println("Item weight: ");
+                double weight = scanner1.nextDouble();
+                scanner1.nextLine();
+                Item i = new Item(name, height, length, width, weight);
+                inventory.add(i);
+                saveInventory();
+                //add item
+                break;
+            case 2:
+                //add garment
+                //doesn't work
+//            System.out.println("Garment name: ");
+//            String name =scanner1.nextLine();
+//            System.out.println("Garment width: ");
+//            double width = scanner1.nextDouble();nuke.nextLine();
+//            System.out.println("Garment height: ");
+//            double height = scanner1.nextDouble();nuke.nextLine();
+//            System.out.println("Garment length: ");
+//            double length = scanner1.nextDouble();nuke.nextLine();
+//            System.out.println("Garment weight: ");
+//            double weight = scanner1.nextDouble();nuke.nextLine();
+//            System.out.println("Garment price: ");
+//            double price = scanner1.nextDouble();nuke.nextLine();
+//            System.out.println("Garments size: ");
+//            String size = scanner1.nextLine();
+//            Garment t = new Garment(name,width,height,length,weight,price,size);
+//            inventory.add(t);
+//            saveInventory();
+//            break;
+            case 3:
+                // add perishable item
+                //doesn't work
+//            PerishableItem s = new PerishableItem( name,height, length, width, weight, price, daysLeft);
+//            System.out.println("Name: ");
+//            String name = scanner1.nextLine();
+//            System.out.println("Height: ");
+//            double height = scanner1.nextDouble();nuke.nextLine();
+//            System.out.println("Length: ");
+//            double length = scanner1.nextDouble();nuke.nextLine();
+//            System.out.println("Width: ");
+//
+//            System.out.println("Weight: ");
+//
+//            System.out.println("Price: ");
+//
+//            System.out.println("Days left: ");
+//            int daysLeft = nuke.nextLine();
+                break;
+            case 4:
+                // leave
+                break;
+            default:
+                System.out.println("You don't know how to count!");
+        }
+    }
 }
