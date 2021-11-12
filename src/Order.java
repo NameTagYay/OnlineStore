@@ -1,12 +1,11 @@
 import java.time.LocalDate;
-
 public class Order {
     private LocalDate orderDate;
     private Customer customer;
     private Item[] items;
     private int invoice;
     private double total, tax, shippingCost;
-    private Shipment shipment;
+
 
     public enum Carrier{
         USPS,UPS,FEDEX
@@ -14,6 +13,8 @@ public class Order {
     public enum Box{
         SMALL,MEDIUM,LARGE,SMALL_NARROW,MEDIUM_NARROW,LARGE_NARROW,PERISHABLE
     }
+
+
     public Order(Customer customer, Item[] items){
         this.customer = customer;
         this.items = items;
