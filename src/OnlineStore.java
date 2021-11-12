@@ -40,6 +40,7 @@ public class OnlineStore {
                 case 1:
                     //Load inventory
                     loadInventory();
+                    //items are saved into inventory but so far it does not list them only lists how many there are.
                     break;
 
                 case 2:
