@@ -28,8 +28,6 @@ public class OnlineStore {
         }catch(Exception e){
             System.err.print("ERROR: Could not save the inventory!");
         }
-
-
     }
 
     public static void main(String[] args) {
@@ -44,12 +42,21 @@ public class OnlineStore {
                     break;
 
                 case 2:
+                    //Add items in inventory
                     break;
 
                 case 3:
+                    //Remove items from inventory
                     break;
 
                 case 4:
+
+                    //Modify quantity of items
+                    break;
+
+                case 5:
+                    saveInventory();
+                    //leave
                     break;
                 default:
                     System.out.println("You don't know how to count apparently.");
@@ -59,11 +66,11 @@ public class OnlineStore {
 
     }
     public static void printMenu(){
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
-        System.out.println(" ");
+        System.out.println("1 Print inventory: ");
+        System.out.println("2 Add item: ");
+        System.out.println("3 Remove item: ");
+        System.out.println("4 Modify quantity: ");
+        System.out.println("5 Leave: ");
     }
    //maybe public static void printAddInventory() from last store class ???
 }
