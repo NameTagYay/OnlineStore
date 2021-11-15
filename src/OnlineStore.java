@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
@@ -151,7 +152,8 @@ public class OnlineStore {
         switch (y) {
             case 1:
                 //removes item
-
+//                DELETE FROM table
+//                WHERE condition;
             case 2:
                 //removes perishable item
             case 3:
