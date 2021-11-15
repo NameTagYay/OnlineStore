@@ -51,7 +51,8 @@ public class OnlineStore {
 
                 case 3:
                     //Remove items from inventory
-
+                    printRemoveInventory();
+                    doRemoveInventory();
                     break;
 
                 case 4:
@@ -71,11 +72,11 @@ public class OnlineStore {
 
     }
     public static void printMenu(){
-        System.out.println("1 Print inventory: ");
-        System.out.println("2 Add item: ");
-        System.out.println("3 Remove item: ");
-        System.out.println("4 Modify quantity: ");
-        System.out.println("5 Leave: ");
+        System.out.println(" 1 Print inventory: ");
+        System.out.println(" 2 Add item: ");
+        System.out.println(" 3 Remove item: ");
+        System.out.println(" 4 Modify quantity: ");
+        System.out.println(" 5 Leave: ");
     }
    //maybe public static void printAddInventory() from last store class ???
     public static void printAddInventory(){
@@ -102,8 +103,7 @@ public class OnlineStore {
                 double width = scanner1.nextDouble();
                 scanner1.nextLine();
                 System.out.println("Item weight: ");
-                double weight = scanner1.nextDouble();
-                scanner1.nextLine();
+                double weight = scanner1.nextDouble();scanner1.nextLine();
                 Item i = new Item(name, height, length, width, weight);
                 inventory.add(i);
                 saveInventory();
@@ -113,21 +113,23 @@ public class OnlineStore {
             case 2:
                 // add perishable item
                 //doesn't work
-//            PerishableItem s = new PerishableItem( name,height, length, width, weight, price, daysLeft);
-//            System.out.println("Name: ");
-//            String name = scanner1.nextLine();
-//            System.out.println("Height: ");
-//            double height = scanner1.nextDouble();nuke.nextLine();
-//            System.out.println("Length: ");
-//            double length = scanner1.nextDouble();nuke.nextLine();
-//            System.out.println("Width: ");
-//
-//            System.out.println("Weight: ");
-//
-//            System.out.println("Price: ");
-//
-//            System.out.println("Days left: ");
-//            int daysLeft = nuke.nextLine();
+            System.out.println("Name: ");
+            name = scanner1.nextLine();
+            System.out.println("Height: ");
+            height = scanner1.nextDouble();scanner1.nextLine();
+            System.out.println("Length: ");
+            length = scanner1.nextDouble();scanner1.nextLine();
+            System.out.println("Width: ");
+            width = scanner1.nextDouble();scanner1.nextLine();
+            System.out.println("Weight: ");
+            weight = scanner1.nextDouble();scanner1.nextLine();
+            System.out.println("Price: ");
+            double price = scanner1.nextDouble();scanner1.nextLine();
+            System.out.println("Days left: ");
+            int daysLeft = scanner1.nextInt();scanner1.nextLine();
+            PerishableItem p = new PerishableItem( name,height, length, width, weight, price, daysLeft);
+            inventory.add(p);
+            saveInventory();
                 break;
             case 3:
                 // leave
@@ -136,5 +138,27 @@ public class OnlineStore {
             default:
                 System.out.println("You don't know how to count!");
         }
+    }
+    public static void printRemoveInventory(){
+        System.out.println(" What would you like to do?");
+        System.out.println(" 1 - Remove item: ");
+        System.out.println(" 2 - Remove perishable item: ");
+        System.out.println(" 3 - Leave: ");
+    }
+    public static void doRemoveInventory(){
+    //removes inventory with another switch case.
+        int y = scanner1.nextInt();scanner1.nextLine();
+        switch (y) {
+            case 1:
+                //removes item
+
+            case 2:
+                //removes perishable item
+            case 3:
+                //leave
+            default:
+                System.out.println("You can't count apparently.");
+        }
+
     }
 }
