@@ -152,8 +152,8 @@ public class OnlineStore {
         switch (y) {
             case 1:
                 //removes item
-//                DELETE FROM table
-//                WHERE condition;
+//                "DELETE FROM Inventory
+//                        WHERE sku = " + sku
             case 2:
                 //removes perishable item
             case 3:
