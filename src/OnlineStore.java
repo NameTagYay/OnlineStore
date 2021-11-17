@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
@@ -6,6 +8,7 @@ import java.io.*;
 public class OnlineStore {
     public static ArrayList<Item> inventory;
     private static Scanner scanner1 = new Scanner(System.in);
+    private static Statement stmt;
 
 @SuppressWarnings("unchecked")
     public static void loadInventory(){
@@ -33,8 +36,9 @@ public class OnlineStore {
 
     public static void main(String[] args) {
         loadInventory();
+        stmt = new  DBInterface("database.db").getStatement();
         int n = 1;
-        while (n != 5) {
+        while (n != 4) {
             printMenu();
             n = scanner1.nextInt();scanner1.nextLine();
             switch (n) {
@@ -57,11 +61,6 @@ public class OnlineStore {
                     break;
 
                 case 4:
-                    //Modify quantity of items
-
-                    break;
-
-                case 5:
                     //leave
                     break;
 
@@ -114,24 +113,25 @@ public class OnlineStore {
             case 2:
                 // add perishable item
                 //doesn't work
-            System.out.println("Name: ");
-            name = scanner1.nextLine();
-            System.out.println("Height: ");
-            height = scanner1.nextDouble();scanner1.nextLine();
-            System.out.println("Length: ");
-            length = scanner1.nextDouble();scanner1.nextLine();
-            System.out.println("Width: ");
-            width = scanner1.nextDouble();scanner1.nextLine();
-            System.out.println("Weight: ");
-            weight = scanner1.nextDouble();scanner1.nextLine();
-            System.out.println("Price: ");
-            double price = scanner1.nextDouble();scanner1.nextLine();
-            System.out.println("Days left: ");
-            int daysLeft = scanner1.nextInt();scanner1.nextLine();
-            PerishableItem p = new PerishableItem( name,height, length, width, weight, price, daysLeft);
-            inventory.add(p);
-            saveInventory();
                 break;
+//            System.out.println("Name: ");
+//            name = scanner1.nextLine();
+//            System.out.println("Height: ");
+//            height = scanner1.nextDouble();scanner1.nextLine();
+//            System.out.println("Length: ");
+//            length = scanner1.nextDouble();scanner1.nextLine();
+//            System.out.println("Width: ");
+//            width = scanner1.nextDouble();scanner1.nextLine();
+//            System.out.println("Weight: ");
+//            weight = scanner1.nextDouble();scanner1.nextLine();
+//            System.out.println("Price: ");
+//            double price = scanner1.nextDouble();scanner1.nextLine();
+//            System.out.println("Days left: ");
+//            int daysLeft = scanner1.nextInt();scanner1.nextLine();
+//            PerishableItem p = new PerishableItem( name,height, length, width, weight, price, daysLeft);
+//            inventory.add(p);
+//            saveInventory();
+//                break;
             case 3:
                 // leave
                 break;
@@ -151,13 +151,19 @@ public class OnlineStore {
         int y = scanner1.nextInt();scanner1.nextLine();
         switch (y) {
             case 1:
-                //removes item
-//                "DELETE FROM Inventory
-//                        WHERE sku = " + sku
+                System.out.println("Enter SKU to delete item:");
+                int sku = scanner1.nextInt(); scanner1.nextLine();
+                try {
+                    stmt.execute("DELETE FROM Inventory\n" +
+                            "                        WHERE SKU =" + sku);
+                }catch(SQLException e){}
             case 2:
+                break;
+//                System.out.println("Out of order!");
                 //removes perishable item
             case 3:
                 //leave
+                break;
             default:
                 System.out.println("You can't count apparently.");
         }
