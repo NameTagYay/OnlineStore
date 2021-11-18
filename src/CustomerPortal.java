@@ -22,7 +22,7 @@ public class CustomerPortal {
             if (n == 1) {
                 createUser();
             } else if (n == 2) {
-
+                signIn();
             } else {
                 System.out.println("Thank you for shopping with us");
             }
@@ -74,6 +74,16 @@ public class CustomerPortal {
         System.out.println("1. Sign up");
         System.out.println("2. Sign in");
         System.out.println("3. Exit");
+    }
+    public static void updateCustomer(){
+        String name = customer.getName();
+        String password = customer.getPassword();
+        String address = customer.getAddress();
+        int distance = customer.getDistance();
+
+        try{
+            stmt.execute("UPDATE Customer SET (Name,Password,Address,Distance) = (\""+name"\""+password)
+        }
     }
 
 
